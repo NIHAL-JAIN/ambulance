@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "944163121650",
+    "firebase_url": "https://quick-ambulance-18a1e.firebaseio.com",
+    "project_id": "quick-ambulance-18a1e",
+    "storage_bucket": "quick-ambulance-18a1e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:944163121650:android:e6310e36711369b66be36b",
+        "android_client_info": {
+          "package_name": "com.example.quickambulance"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "944163121650-9fvogfvodp3r0cug42632ldk78gdnp5u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.quickambulance",
+            "certificate_hash": "040a7c55d495053c9974b1d69df6d515df15f88b"
+          }
+        },
+        {
+          "client_id": "944163121650-l3ci695cp6uhbj5cj6d4fp65n8ngd44n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-mi1bfAVezRmufajXiRUnP4c2a2-24mo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "944163121650-l3ci695cp6uhbj5cj6d4fp65n8ngd44n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
