@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //Before setcontent View
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
-                .setDefaultFontPath("fonts/Arkhip_font.tff")
+                .setDefaultFontPath("fonts/Arkhip_font.ttf")
                 .setFontAttrId(R.attr.fontPath)
                  .build());
                  setContentView(R.layout.activity_main);
@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
                                 .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                                     @Override
                                     public void onSuccess(AuthResult authResult) {
-                                        startActivity(new Intent(MainActivity.this,Welcome.class));
+                                        startActivity(new Intent(MainActivity.this,Main2Activity.class));
                                         finish();
 
                                     }

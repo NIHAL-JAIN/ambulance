@@ -18,7 +18,7 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:text="QUICK AMBULANCE"
+            android:text="@string/quick_ambulance"
             android:textSize="32sp"
             android:textAlignment="center"
             android:textColor="@android:color/black"
@@ -52,8 +52,8 @@
             android:id="@+id/btnSignIn"
             android:background="@drawable/btn_sign_in_background"
             android:textColor="@android:color/black"
-            android:text="SIGN IN"
-            android:layout_marginRight="6dp"
+            android:text="@string/sign_in"
+            android:layout_marginEnd="6dp"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"></Button>
@@ -61,8 +61,8 @@
             android:id="@+id/btnRegister"
             android:background="@drawable/btn_register_background"
             android:textColor="@color/btnRegister"
-            android:text="REGISTER"
-            android:layout_marginRight="6dp"
+            android:text="@string/register"
+            android:layout_marginEnd="6dp"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"></Button>
