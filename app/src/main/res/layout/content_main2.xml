@@ -72,13 +72,16 @@
             android:orientation="horizontal"
             android:gravity="center"
             android:baselineAligned="false">
+
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="181dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="20">
+                android:layout_weight="600">
+
                 <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp">
 
                     <LinearLayout
                         android:id="@+id/hospital"
@@ -90,15 +93,14 @@
                         <ImageView
                             android:layout_width="41dp"
                             android:layout_height="278dp"
-                            android:layout_weight="2"
-                            android:src="@mipmap/hospitalicon"
-                            android:contentDescription="Hospital" />
+                            android:layout_weight="20"
+                            android:contentDescription="Hospital"
+                            android:src="@mipmap/hospitalicon" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="10"
-                            android:text="HOSPITAL" />
+                            android:text="@string/hospital" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
@@ -106,7 +108,7 @@
             <LinearLayout
                 android:layout_width="181dp"
                 android:layout_height="match_parent"
-                android:layout_weight="20">
+                android:layout_weight="40">
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
@@ -115,7 +117,7 @@
 
                     <LinearLayout
                         android:id="@+id/ambulance"
-                        android:layout_width="162dp"
+                        android:layout_width="100dp"
                         android:layout_height="90dp"
                         android:gravity="center"
                         android:orientation="vertical">
@@ -142,11 +144,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="90"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:gravity="center"
-                        android:weightSum="20"
+                        android:weightSum="80"
                         android:id="@+id/bloodbank"
                         >
                         <ImageView
