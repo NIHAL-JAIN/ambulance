@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.example.quickambulance.Model.User;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -34,6 +35,14 @@ public class MainActivity extends AppCompatActivity {
    FirebaseAuth auth;
    FirebaseDatabase db;
    DatabaseReference users;
+   AlertDialog.Builder dialogReg;
+   AlertDialog.Builder dialogLogn;
+
+   MaterialEditText edtEmail ;
+   MaterialEditText edtPassword;
+   MaterialEditText edtName  ;
+   MaterialEditText edtPhone ;
+   MaterialEditText edtAddress;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -67,7 +76,6 @@ public class MainActivity extends AppCompatActivity {
                 showRegisterDialog();
             }
         });
-
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -77,9 +85,9 @@ public class MainActivity extends AppCompatActivity {
     }
 // login
     private void showLoginDialog() {
-        final AlertDialog.Builder dialog= new AlertDialog.Builder(this);
-        dialog.setTitle("SIGN IN");
-        dialog.setMessage("Please use email to sign in");
+        dialogLogn = new AlertDialog.Builder(this);
+        dialogLogn.setTitle("SIGN IN");
+        dialogLogn.setMessage("Please use email to sign in");
 
         LayoutInflater inflater = LayoutInflater.from(this);
         View login_layout = inflater.inflate(R.layout.layout_login,null);
@@ -87,31 +95,30 @@ public class MainActivity extends AppCompatActivity {
         final MaterialEditText edtEmail = login_layout.findViewById(R.id.edtEmail);
         final MaterialEditText edtPassword = login_layout.findViewById(R.id.edtPassword);
 
-        dialog.setView(login_layout);
+        dialogLogn.setView(login_layout);
 
         //Set button
-        dialog.setPositiveButton("SIGN IN", new DialogInterface.OnClickListener() {
+        dialogLogn.setPositiveButton("SIGN IN", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        dialogInterface.dismiss();
 
                         //Check Validation
                         if (TextUtils.isEmpty(edtEmail.getText().toString())) {
                             Snackbar.make(rootLayout, "Please enter email address", Snackbar.LENGTH_SHORT)
                                     .show();
-                            return;
+                           // return;
                         }
 
                         if (TextUtils.isEmpty(edtPassword.getText().toString())) {
                             Snackbar.make(rootLayout, "Please enter password", Snackbar.LENGTH_SHORT)
                                     .show();
-                            return;
+                          //  return;
                         }
 
                         if (edtPassword.getText().toString().length() < 6) {
                             Snackbar.make(rootLayout, "Password too short !!!", Snackbar.LENGTH_SHORT)
                                     .show();
-                            return;
+                           // return;
                         }
 
                         //Login
@@ -134,120 +141,128 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
-        dialog.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+        dialogLogn.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.dismiss();
             }
         });
 
-        dialog.show();
+        dialogLogn.show();
 
 
     }
 
     private void showRegisterDialog() {
-        final AlertDialog.Builder dialog= new AlertDialog.Builder(this);
-        dialog.setTitle("REGISTER");
-        dialog.setMessage("Please use email to register");
-
+        dialogReg= new AlertDialog.Builder(this);
+        dialogReg.setTitle("REGISTER");
+        dialogReg.setMessage("Please use email to register");
+        dialogReg.setOnCancelListener(new DialogInterface.OnCancelListener() {
+            @Override
+            public void onCancel(DialogInterface dialog) {
+           Toast.makeText(getApplicationContext(),"cancelled",Toast.LENGTH_SHORT).show();
+            }
+        });
         LayoutInflater inflater = LayoutInflater.from(this);
         View register_layout = inflater.inflate(R.layout.layout_register,null);
 
-        final MaterialEditText edtEmail = register_layout.findViewById(R.id.edtEmail);
-        final MaterialEditText edtPassword = register_layout.findViewById(R.id.edtPassword);
-        final MaterialEditText edtName = register_layout.findViewById(R.id.edtName);
-        final MaterialEditText edtPhone = register_layout.findViewById(R.id.edtPhone);
-        MaterialEditText edtAddress = register_layout.findViewById(R.id.edtAddress);
 
-        dialog.setView(register_layout);
+        dialogReg.setView(register_layout);
+
+          edtEmail = register_layout.findViewById(R.id.edtEmail);
+          edtPassword = register_layout.findViewById(R.id.edtPassword);
+          edtName = register_layout.findViewById(R.id.edtName);
+          edtPhone = register_layout.findViewById(R.id.edtPhone);
+          edtAddress = register_layout.findViewById(R.id.edtAddress);
 
         //Set button
-        dialog.setPositiveButton("Register", new DialogInterface.OnClickListener() {
+        dialogReg.setPositiveButton("Register", new DialogInterface.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.dismiss();
+            public void onClick(final DialogInterface dialogInterface, int i) {
+
 
                 //Check Validation
                 if (TextUtils.isEmpty(edtEmail.getText().toString()))
                 {
-                    Snackbar.make(rootLayout,"Please enter email address",Snackbar.LENGTH_SHORT)
-                            .show();
-                    return;
-                }
-
-                if (TextUtils.isEmpty(edtPhone.getText().toString()))
+                    edtEmail.setText("");
+                    edtEmail.setHint("Please enter email address");
+                   // return;
+                }else
+                    if (TextUtils.isEmpty(edtPhone.getText().toString()))
                 {
-                    Snackbar.make(rootLayout,"Please enter phone number",Snackbar.LENGTH_SHORT)
-                            .show();
-                    return;
-                }
-
+                    edtPhone.setText("");
+                    edtPhone.setHint("Please enter phone number");
+                 //   return;
+                }else
                 if (TextUtils.isEmpty(edtPassword.getText().toString()))
                 {
-                    Snackbar.make(rootLayout,"Please enter password",Snackbar.LENGTH_SHORT)
-                            .show();
-                    return;
-                }
-
+                    edtPassword.setText("");
+                    edtPassword.setHint("Please enter password");
+                }else
                 if (edtPassword.getText().toString().length()<6)
                 {
-                    Snackbar.make(rootLayout,"Password too short !!!",Snackbar.LENGTH_SHORT)
-                            .show();
-                    return;
+                    edtPassword.setText("");
+                    edtPassword.setHint("Please enter password of valid length");
+                    //    return;
+                }else
+                if (TextUtils.isEmpty(edtAddress.getText().toString()))
+                {
+                    edtAddress.setText("");
+                    edtAddress.setHint("Please enter password");
+                }
+                    //Register new user
+                try {
+                    Register(edtEmail.getText().toString(), edtPassword.getText().toString());
+                } catch (Exception e) {
+                    Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
+                    e.printStackTrace();
                 }
 
-                //Register new user
-                auth.createUserWithEmailAndPassword(edtEmail.getText().toString(),edtPassword.getText().toString())
-                        .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-                            @Override
-                            public void onSuccess(AuthResult authResult) {
-                                //Save user to db
-                                User user = new User();
-                                user.setEmail(edtEmail.getText().toString());
-                                user.setName(edtName.getText().toString());
-                                user.setPhone(edtPhone.getText().toString());
-                                user.setPassword(edtPassword.getText().toString());
+            }
+        });
 
-                                //Use email to key
-                                users.child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                        .setValue(user)
-                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                            @Override
-                                            public void onSuccess(Void aVoid) {
-                                                Snackbar.make(rootLayout,"Register success fully !!!",Snackbar.LENGTH_SHORT)
-                                                .show();
-                                            }
-                                        })
+        dialogReg.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+            }
+        });
+        dialogReg.show();
+
+    }
+    private void Register(final String mail, final String pass){
+        auth.createUserWithEmailAndPassword(mail,pass)
+                .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                    @Override
+                    public void onSuccess(AuthResult authResult) {
+                        //Save user to db
+                        User user = new User();
+                        user.setEmail(mail);
+                        user.setPassword(pass);
+                        user.setName(edtName.getText().toString());
+                        user.setPhone(edtPhone.getText().toString());
+                        user.setAddress(edtAddress.getText().toString());
+                        //Use email to key
+                        users.child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                .setValue(user)
+                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void aVoid) {
+                                        Toast.makeText(getApplicationContext(),"register success",Toast.LENGTH_SHORT).show();
+                                    }
+                                })
                                 .addOnFailureListener(new OnFailureListener() {
                                     @Override
                                     public void onFailure(@NonNull Exception e) {
-                                        Snackbar.make(rootLayout,"Failed"+e.getMessage(),Snackbar.LENGTH_SHORT)
-                                                .show();
+                                        Toast.makeText(getApplicationContext(),"register failed "+e.getMessage(),Toast.LENGTH_SHORT).show();
                                     }
                                 });
-
-                            }
-                        })
+                    }
+                })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Snackbar.make(rootLayout,"Failed"+e.getMessage(),Snackbar.LENGTH_SHORT)
-                                .show();
+                        Toast.makeText(getApplicationContext(),"failed "+e.getMessage(),Toast.LENGTH_SHORT).show();
                     }
                 });
-
-            }
-        });
-
-        dialog.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.dismiss();
-            }
-        });
-
-        dialog.show();
-
     }
 }

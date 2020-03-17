@@ -9,4 +9,5 @@
 
     <color name="btnSignIn">#1fbad6</color>
     <color name="btnRegister">#83838c</color>
+    <color name="black">#000</color>
 </resources>

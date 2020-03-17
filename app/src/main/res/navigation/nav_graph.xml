@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment2">
+    <fragment
+        android:id="@+id/ambulanceBook"
+        android:name="com.example.quickambulance.AmbulanceBook"
+        android:label="fragment_ambulance_book"
+        tools:layout="@layout/fragment_ambulance_book" />
+    <fragment
+        android:id="@+id/hospitalView"
+        android:name="com.example.quickambulance.HospitalView"
+        android:label="fragment_hospital_view"
+        tools:layout="@layout/fragment_hospital_view" />
+    <fragment
+        android:id="@+id/bloodBank"
+        android:name="com.example.quickambulance.BloodBank"
+        android:label="fragment_blood_bank"
+        tools:layout="@layout/fragment_blood_bank" />
+    <fragment
+        android:id="@+id/mainFragment2"
+        android:name="com.example.quickambulance.MainFragment"
+        android:label="MainFragment" >
+        <action
+            android:id="@+id/action_mainFragment2_to_ambulanceBook"
+            app:destination="@id/ambulanceBook" />
+        <action
+            android:id="@+id/action_mainFragment2_to_hospitalView"
+            app:destination="@id/hospitalView" />
+        <action
+            android:id="@+id/action_mainFragment2_to_bloodBank"
+            app:destination="@id/bloodBank" />
+    </fragment>
+</navigation>
