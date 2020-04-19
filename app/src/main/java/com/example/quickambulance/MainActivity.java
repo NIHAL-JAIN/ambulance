@@ -65,9 +65,9 @@ public class MainActivity extends AppCompatActivity {
         users = db.getReference("Users");
 
                  //Init View
-        btnRegister = (Button)findViewById(R.id.btnRegister);
-        btnSignIn = (Button)findViewById(R.id.btnSignIn);
-        rootLayout = (RelativeLayout)findViewById(R.id.rootLayout);
+        btnRegister = findViewById(R.id.btnRegister);
+        btnSignIn = findViewById(R.id.btnSignIn);
+        rootLayout = findViewById(R.id.rootLayout);
 
         //Event
         btnRegister.setOnClickListener(new View.OnClickListener() {

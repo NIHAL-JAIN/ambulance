@@ -26,4 +26,7 @@
     <string name="near_by_hospital">Near by Hospital</string>
 
     <string name="hospitalt">Hospital</string>
+    <string name="logout">logout</string>
+    <string name="title_activity_ambulance">Map</string>
+    <string name="animal_ambulance">animal_ambulance</string>
 </resources>

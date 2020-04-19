@@ -124,7 +124,7 @@
 
                         <ImageView
                             android:layout_width="60dp"
-                            android:layout_height="30dp"
+                            android:layout_height="50dp"
                             android:layout_weight="20"
                             android:src="@mipmap/ambulanceicon" />
 
@@ -137,6 +137,37 @@
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
             <LinearLayout
+                android:layout_width="181dp"
+                android:layout_height="match_parent"
+                android:layout_weight="40">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp">
+
+                    <LinearLayout
+                        android:id="@+id/animal_ambulance"
+                        android:layout_width="100dp"
+                        android:layout_height="90dp"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="50dp"
+                            android:layout_weight="20"
+                            android:src="@mipmap/Animal_ambulance_icon" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="90"
+                            android:text="      Animal Ambulance" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
@@ -144,23 +175,23 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
                     <LinearLayout
-                        android:layout_width="90dp"
-                        android:layout_height="wrap_content"
+                        android:layout_width="80dp"
+                        android:layout_height="100dp"
                         android:orientation="vertical"
                         android:gravity="center"
-                        android:weightSum="80"
+                        android:weightSum="60"
                         android:id="@+id/bloodbank"
                         >
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="20"
+                            android:layout_width="90dp"
+                            android:layout_height="50dp"
+                            android:layout_weight="10"
                             android:src="@mipmap/bbicon"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="BLOOD BANK"/>
+                            android:text=" BLOOD   BANK"/>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
