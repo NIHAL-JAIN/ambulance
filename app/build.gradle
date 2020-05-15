@@ -24,25 +24,41 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    implementation 'com.google.firebase:firebase-core:17.2.2'
-    implementation 'com.google.firebase:firebase-messaging:20.1.0'
-    implementation 'com.google.firebase:firebase-auth:19.2.0'
-    implementation 'com.google.android.gms:play-services-auth:17.0.0'
-    testImplementation 'junit:junit:4.12'
+    implementation 'com.google.firebase:firebase-core:17.3.0'
+    implementation 'com.google.firebase:firebase-messaging:20.1.5'
+    implementation 'com.google.firebase:firebase-auth:19.3.0'
+    implementation 'com.google.android.gms:play-services-auth:18.0.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'com.google.firebase:firebase-firestore:21.4.2'
+    implementation 'com.google.firebase:firebase-perf:19.0.6'
+    implementation 'com.google.firebase:firebase-functions:19.0.2'
+    testImplementation 'junit:junit:4.13'
 
     //Add Library
+    implementation "com.github.d-max:spots-dialog:0.7@aar"
+    implementation "androidx.navigation:navigation-ui:2.2.2"
     implementation 'uk.co.chrisjenx:calligraphy:2.3.0'
     implementation "androidx.cardview:cardview:1.0.0"
     implementation 'com.rengwuxian.materialedittext:library:2.1.4'
     implementation 'com.google.firebase:firebase-database:19.2.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-    implementation 'com.google.firebase:firebase-analytics:17.2.2'
-    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'com.google.firebase:firebase-analytics:17.3.0'
+    implementation 'com.firebase:geofire-android:2.1.2'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0arr'
     implementation 'com.google.android.material:material:1.1.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
     implementation 'androidx.gridlayout:gridlayout:1.0.0'
+    implementation 'com.google.android.gms:play-services-ads:19.1.0'
+    def nav_version = "2.3.0-alpha03"
+    implementation 'androidx.navigation:navigation-fragment:2.2.2'
+    implementation 'androidx.navigation:navigation-ui:2.2.2'
+    implementation 'androidx.mediarouter:mediarouter:1.1.0'
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+
+
 
 }
 apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.firebase-perf'
