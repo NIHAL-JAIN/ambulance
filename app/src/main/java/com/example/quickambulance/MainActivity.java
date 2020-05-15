@@ -25,6 +25,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
+import dmax.dialog.SpotsDialog;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 public class MainActivity extends AppCompatActivity {
@@ -101,25 +102,35 @@ public class MainActivity extends AppCompatActivity {
         dialogLogn.setPositiveButton("SIGN IN", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+
+                        //set disable button
+
+
+                      //Active button
+                        btnSignIn.setEnabled(false);
 
                         //Check Validation
                         if (TextUtils.isEmpty(edtEmail.getText().toString())) {
                             Snackbar.make(rootLayout, "Please enter email address", Snackbar.LENGTH_SHORT)
                                     .show();
-                           // return;
+                            return;
                         }
 
                         if (TextUtils.isEmpty(edtPassword.getText().toString())) {
                             Snackbar.make(rootLayout, "Please enter password", Snackbar.LENGTH_SHORT)
                                     .show();
-                          //  return;
+                            return;
                         }
-
                         if (edtPassword.getText().toString().length() < 6) {
                             Snackbar.make(rootLayout, "Password too short !!!", Snackbar.LENGTH_SHORT)
                                     .show();
-                           // return;
+                            return;
                         }
+
+                        final SpotsDialog waitingDialog = new SpotsDialog(MainActivity.this);
+                        waitingDialog.show();
+
 
                         //Login
                         auth.signInWithEmailAndPassword(String.valueOf(edtEmail.getText()),edtPassword.getText().toString())
@@ -133,8 +144,12 @@ public class MainActivity extends AppCompatActivity {
                                 }).addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
+                                waitingDialog.dismiss();
                                 Snackbar.make(rootLayout,"Failed"+e.getMessage(),Snackbar.LENGTH_SHORT)
                                         .show();
+
+                                //Active button
+                                btnSignIn.setEnabled(true);
                             }
                         });
 

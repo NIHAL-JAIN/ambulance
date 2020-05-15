@@ -3,34 +3,37 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/mainFragment2">
+    app:startDestination="@id/main2Activity">
     <fragment
         android:id="@+id/ambulanceBook"
         android:name="com.example.quickambulance.AmbulanceBook"
         android:label="fragment_ambulance_book"
-        tools:layout="@layout/fragment_ambulance_book" />
+        tools:layout="@layout/fragment_ambulance_book" >
+        <action
+            android:id="@+id/action_ambulanceBook_to_main2Activity"
+            app:destination="@id/main2Activity" />
+    </fragment>
     <fragment
         android:id="@+id/hospitalView"
         android:name="com.example.quickambulance.HospitalView"
         android:label="fragment_hospital_view"
-        tools:layout="@layout/fragment_hospital_view" />
+        tools:layout="@layout/fragment_hospital_view" >
+        <action
+            android:id="@+id/action_hospitalView_to_main2Activity"
+            app:destination="@id/main2Activity" />
+    </fragment>
     <fragment
         android:id="@+id/bloodBank"
         android:name="com.example.quickambulance.BloodBank"
         android:label="fragment_blood_bank"
-        tools:layout="@layout/fragment_blood_bank" />
-    <fragment
-        android:id="@+id/mainFragment2"
-        android:name="com.example.quickambulance.MainFragment"
-        android:label="MainFragment" >
+        tools:layout="@layout/fragment_blood_bank" >
         <action
-            android:id="@+id/action_mainFragment2_to_ambulanceBook"
-            app:destination="@id/ambulanceBook" />
-        <action
-            android:id="@+id/action_mainFragment2_to_hospitalView"
-            app:destination="@id/hospitalView" />
-        <action
-            android:id="@+id/action_mainFragment2_to_bloodBank"
-            app:destination="@id/bloodBank" />
+            android:id="@+id/action_bloodBank_to_main2Activity"
+            app:destination="@id/main2Activity" />
     </fragment>
+    <activity
+        android:id="@+id/main2Activity"
+        android:name="com.example.quickambulance.Main2Activity"
+        android:label="app_bar_main2"
+        tools:layout="@layout/app_bar_main2" />
 </navigation>

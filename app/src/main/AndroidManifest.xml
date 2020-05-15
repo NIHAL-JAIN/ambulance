@@ -42,7 +42,7 @@
 
         <activity
             android:name=".Main2Activity"
-            android:label="@string/title_activity_main2"
+            android:label="Quick Ambulance"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".MainActivity">
             <intent-filter>

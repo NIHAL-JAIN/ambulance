@@ -35,6 +35,7 @@ dependencies {
     testImplementation 'junit:junit:4.13'
 
     //Add Library
+    implementation "com.github.d-max:spots-dialog:0.7@aar"
     implementation "androidx.navigation:navigation-ui:2.2.2"
     implementation 'uk.co.chrisjenx:calligraphy:2.3.0'
     implementation "androidx.cardview:cardview:1.0.0"
@@ -55,7 +56,7 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui:2.2.2'
     implementation 'androidx.mediarouter:mediarouter:1.1.0'
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
-    implementation 'com.google.android.gms:play-services:12.0.1'
+
 
 
 }

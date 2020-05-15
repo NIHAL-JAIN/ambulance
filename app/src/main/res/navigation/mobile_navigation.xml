@@ -2,58 +2,56 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
-
-    <fragment
-        android:id="@+id/nav_home"
-        android:name="com.example.quickambulance.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" >
-        <action
-            android:id="@+id/action_nav_home_to_nav_gallery"
-            app:destination="@id/nav_gallery" />
-        <action
-            android:id="@+id/action_nav_home_to_nav_tools"
-            app:destination="@id/nav_tools" />
-        <action
-            android:id="@+id/action_nav_home_to_nav_slideshow"
-            app:destination="@id/nav_slideshow" />
-        <action
-            android:id="@+id/action_nav_home_to_nav_share"
-            app:destination="@id/nav_share" />
-        <action
-            android:id="@+id/action_nav_home_to_nav_send"
-            app:destination="@id/nav_send" />
-    </fragment>
+    android:id="@+id/mobile_navigation">
 
     <fragment
         android:id="@+id/nav_gallery"
         android:name="com.example.quickambulance.ui.gallery.GalleryFragment"
         android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_gallery" >
+        <action
+            android:id="@+id/action_nav_gallery_to_main2Activity2"
+            app:destination="@id/main2Activity2" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_slideshow"
         android:name="com.example.quickambulance.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_slideshow" >
+        <action
+            android:id="@+id/action_nav_slideshow_to_main2Activity2"
+            app:destination="@id/main2Activity2" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_tools"
         android:name="com.example.quickambulance.ui.tools.ToolsFragment"
         android:label="@string/menu_tools"
-        tools:layout="@layout/fragment_tools" />
+        tools:layout="@layout/fragment_tools" >
+        <action
+            android:id="@+id/action_nav_tools_to_main2Activity2"
+            app:destination="@id/main2Activity2" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_share"
         android:name="com.example.quickambulance.ui.share.ShareFragment"
         android:label="@string/menu_share"
-        tools:layout="@layout/fragment_share" />
+        tools:layout="@layout/fragment_share" >
+        <action
+            android:id="@+id/action_nav_share_to_main2Activity2"
+            app:destination="@id/main2Activity2" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_send"
         android:name="com.example.quickambulance.ui.send.SendFragment"
         android:label="@string/menu_send"
         tools:layout="@layout/fragment_send" />
+    <activity
+        android:id="@+id/main2Activity2"
+        android:name="com.example.quickambulance.Main2Activity"
+        android:label="app_bar_main2"
+        tools:layout="@layout/app_bar_main2" />
 </navigation>
